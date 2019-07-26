@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
-import { changeLang } from '../actions';
+import { changeLang } from '../redux/actions';
 
 
 

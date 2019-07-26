@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import Locale from './locale';
 import reducer from './reducers'
 import { getAllProducts } from './actions'
-import App from './containers/App'
+import App from './pages/App'
 
 const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
