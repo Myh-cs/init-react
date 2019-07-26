@@ -17,8 +17,14 @@ const App = ({ changeLang }) => (
     <CartContainer />
     <hr />
     <FormattedMessage id='name' values={{
-      name: <h1 onClick={changeLang} > {'asdasd'}</h1>
+      name: <button onClick={changeLang} > {'国际化'}</button>
     }} />
+    <FormattedMessage id="hello" tagName="h2" />
+    <FormattedMessage id='hello'>
+      {(txt) => (
+        <input type="button"value={txt} />
+      )}
+    </FormattedMessage>
   </div>
 )
 
