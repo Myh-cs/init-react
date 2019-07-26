@@ -22,6 +22,9 @@ export const addToCart = productId => (dispatch, getState) => {
     dispatch(addToCartUnsafe(productId))
   }
 }
+export const changeLang = () => (dispatch) => dispatch({
+  type: types.SWITCH_LANG
+})
 
 export const checkout = products => (dispatch, getState) => {
   const { cart } = getState()
