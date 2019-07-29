@@ -134,5 +134,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "proxy":{
+    
   }
 }
