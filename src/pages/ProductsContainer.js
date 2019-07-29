@@ -30,8 +30,9 @@ ProductsContainer.propTypes = {
 const mapStateToProps = state => ({
   products: getVisibleProducts(state.products)
 })
-
-export default connect(
+const products = connect(
   mapStateToProps,
   { addToCart }
 )(ProductsContainer)
+products.displayName = "ProductsMain"
+export default products;
