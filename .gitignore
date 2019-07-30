@@ -11,3 +11,6 @@ build
 npm-debug.log
 
 coverage
+
+.vscode
+.yarn-error.log
