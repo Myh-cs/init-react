@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import BaseLayout from './Layout/BaseLayout';
 import withAuthority from './withAuthority'
 import Login from './pages/Login';
 
@@ -23,8 +24,13 @@ function RouteConfig(params) {
     <Router>
       <Switch>
         <Route path="/" exact component={withAuthority(LoadableComponent)} />
-        <Route path="/login" component={Login}/>
+        <Route path="/login" component={Login} />
         <Route path="/app" render={withAuthority(AppWarp)} />
+        <Route path="/layout">
+          <BaseLayout>
+            <Route path="/layout/apps" render={withAuthority(AppWarp)} />
+          </BaseLayout>
+        </Route>
         <Redirect from="*" to='/' />
       </Switch>
     </Router>

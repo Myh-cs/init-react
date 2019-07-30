@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
-import Locale from './locale';
+import Locale from '@/locale';
 import reducer from './redux/reducers'
 import { getAllProducts } from './redux/actions'
 import RouteConfig from './router'

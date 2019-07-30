@@ -18,7 +18,8 @@ react 项目初始化架构，在redux官方购物车demo上修改而来。纯�
 
 国际化 2.x.x版本不支持直接在formatMessage方法嵌入reactElement，需升级到3.xx版本待商榷*3.xx版本有部分Api变动*。（如有需要暂时只能通过React-intl提供的组件来动态传入reactElement）
 
-
+### 新增 布局组件结合router 、请求 全局处理、错误全局处理、webpack @到src的映射
+jsconfig.json 文件夹是用来 方便vscode在使用‘@’映射到‘src’是保持ctrl加点击转跳和自动补全用的。
 
 
 --- 
