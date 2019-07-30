@@ -5,24 +5,24 @@ import Loadable from 'react-loadable';
 // import Loading from './my-loading-component'; // 国际化
 const Loading = () => <span>loading</span>
 const LoadableComponent = Loadable({
-    loader: () => import('./pages/Home'),
-    loading: Loading,
+  loader: () => import('./pages/Home'),
+  loading: Loading,
 });
 const App = Loadable({
-    loader: () => import('./pages/App'),
-    loading: Loading,
+  loader: () => import('./pages/App'),
+  loading: Loading,
 });
-const AppWarp=props=><App {...props} />
+const AppWarp = props => <App {...props} />
 
 function RouteConfig(params) {
-    return (
-        <Router>
-            <Switch>
-                <Route path="/" exact component={LoadableComponent} />
-                <Route path="/app" render={AppWarp} />
-                <Redirect from="*" to='/' />
-            </Switch>
-        </Router>
-    )
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact component={LoadableComponent} />
+        <Route path="/app" render={AppWarp} />
+        <Redirect from="*" to='/' />
+      </Switch>
+    </Router>
+  )
 }
 export default RouteConfig;
