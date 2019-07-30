@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
-
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
@@ -31,5 +31,9 @@ const App = ({ changeLang, intl: { formatMessage } }) => (
     </FormattedMessage>
   </div>
 )
+App.prototype={
+  intl:intlShape.isRequired,
+  changeLang:PropTypes.func.isRequired
+}
 
 export default connect(() => ({}), { changeLang })(injectIntl(App));

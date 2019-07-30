@@ -13,11 +13,11 @@ const middleware = [thunk];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
-const compose = x => x;
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const compose = x => x; // chrom调试redux插件要用到
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;// chrom调试redux插件要用到
 const store = createStore(
   reducer,
-  composeEnhancers(applyMiddleware(...middleware)),
+  composeEnhancers(applyMiddleware(...middleware)),// chrom调试redux插件要用到
 )
 
 store.dispatch(getAllProducts())

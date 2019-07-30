@@ -13,7 +13,15 @@ react 项目初始化架构，在redux官方购物车demo上修改而来。纯�
 - utils 工具
 （。。。考虑常量目录）
 
+### 新增路由权限验证code 和 App.js中对国际化 PropTypes的验证
+路由鉴权的具体逻辑需结合业务来写 在withAuthority里留有位置和 是否有权限的标记变量 auth
 
+国际化 2.x.x版本不支持直接在formatMessage方法嵌入reactElement，需升级到3.xx版本待商榷*3.xx版本有部分Api变动*。（如有需要暂时只能通过React-intl提供的组件来动态传入reactElement）
+
+
+
+
+--- 
 ## 技术选型 状态管理选型
  
  
