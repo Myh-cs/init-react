@@ -252,3 +252,6 @@ export default class MyComponent extends Component {
 export default injectIntl(MyComponent);
 
 ```
+```
+test git
+```
