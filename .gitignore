@@ -14,3 +14,6 @@ coverage
 
 .vscode
 .yarn-error.log
+
+*.iml
+.idea
