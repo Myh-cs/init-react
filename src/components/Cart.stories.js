@@ -13,7 +13,7 @@ const products = [
 
 const total = 12;
 
-storiesOf('Cart', module).add('default view', () => (
+storiesOf('components', module).add('card', () => (
   <div >
     <Cart products={products} total={total} onCheckoutClicked={action('onCheckoutClicked')} />
   </div>
