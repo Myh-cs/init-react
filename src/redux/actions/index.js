@@ -41,3 +41,7 @@ export const checkout = products => (dispatch, getState) => {
     // dispatch({ type: types.CHECKOUT_FAILURE, cart })
   })
 }
+
+
+// test
+export const gethi = () => (dispatch) => shop.gethi().then((res) => console.log('hhhhhhhhh',res))
