@@ -3,9 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "@storybook/addon-actions": "^5.1.10",
+    "@storybook/addon-info": "^5.1.10",
+    "@storybook/addon-knobs": "^5.1.10",
+    "@storybook/addon-storysource": "^5.1.10",
+    "@storybook/react": "^5.1.10",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
-    "harmon": "^1.4.3"
+    "harmon": "^1.4.3",
+    "storybook-addon-react-docgen": "^1.2.2"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -76,7 +82,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=node"
+    "test": "node scripts/test.js --env=node",
+    "storybook": "start-storybook"
   },
   "browserslist": [
     ">0.2%",
