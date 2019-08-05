@@ -13,7 +13,7 @@ npm-debug.log
 coverage
 
 .vscode
-.yarn-error.log
+yarn-error.log
 
 *.iml
 .idea
