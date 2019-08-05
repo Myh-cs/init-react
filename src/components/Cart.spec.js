@@ -55,7 +55,6 @@ describe('Cart component', () => {
         price: product[0].price,
         quantity: product[0].quantity
       }
-
       expect(products.at(0).props()).toEqual(props)
     })
 
