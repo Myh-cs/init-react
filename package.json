@@ -3,12 +3,19 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
+    "@storybook/addon-actions": "^5.1.10",
+    "@storybook/addon-info": "^5.1.10",
+    "@storybook/addon-knobs": "^5.1.10",
+    "@storybook/addon-storysource": "^5.1.10",
+    "@storybook/react": "^5.1.10",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1"
+    "enzyme-adapter-react-16": "^1.12.1",
+    "storybook-addon-react-docgen": "^1.2.2"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
+    "@types/jest": "^24.0.16",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
     "axios": "^0.19.0",
@@ -75,7 +82,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=node"
+    "test": "node scripts/test.js --env=node",
+    "storybook": "start-storybook"
   },
   "browserslist": [
     ">0.2%",
