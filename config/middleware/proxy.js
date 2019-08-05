@@ -1,14 +1,10 @@
-/**
- * @description 代理服务器
- * @autor dongyajie@lianjia.com
- * @date  16/8/31.
- */
+
 var path = require('path')
 var fs = require('fs')
 var vm = require('vm')
 var Url = require('url')
 var through = require('through')
-var harmon = require('harmon')
+var harmon = require('./hardom.js')
 var httpProxy = require('http-proxy')
 var proxyServer = httpProxy.createProxyServer({})
 // 读取配置

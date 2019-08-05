@@ -1,7 +1,4 @@
-/**
- * @description
- * @date  2017/8/31.
- */
+
 const path = require('path')
 const fs = require('fs')
 var parseRange = require("range-parser");

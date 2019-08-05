@@ -1,8 +1,3 @@
-/**
- * @description
- * @date  2017/9/3.
- */
-
 
 export class ReplaceSystemImportPlugin {
 

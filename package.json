@@ -4,8 +4,7 @@
   "private": true,
   "devDependencies": {
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1",
-    "harmon": "^1.4.3"
+    "enzyme-adapter-react-16": "^1.12.1"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
