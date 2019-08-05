@@ -1,18 +1,15 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
-const { withPropsTable } = require('storybook-addon-react-docgen');
 
 addDecorator(withKnobs);
 addDecorator(withInfo);
-addDecorator(withPropsTable({ propTablesExclude: ['Story'] }));
 
 function importAll(context) {
   const storyStore = window.__STORYBOOK_CLIENT_API__._storyStore; // eslint-disable-line no-undef, no-underscore-dangle
 
   context.keys().forEach(filename => {
     const fileExports = context(filename);
-
     // A old-style story file
     if (!fileExports.default) {
       return;

@@ -10,13 +10,13 @@
     "@storybook/react": "^5.1.10",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
-    "harmon": "^1.4.3",
-    "storybook-addon-react-docgen": "^1.2.2"
+    "harmon": "^1.4.3"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
     "@svgr/webpack": "4.1.0",
     "@types/jest": "^24.0.16",
+    "@types/plupload": "^2.0.6",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
     "axios": "^0.19.0",
@@ -50,6 +50,7 @@
     "jest-watch-typeahead": "0.3.0",
     "mini-css-extract-plugin": "0.5.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
+    "plupload": "^2.3.6",
     "pnp-webpack-plugin": "1.2.1",
     "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "3.0.0",
