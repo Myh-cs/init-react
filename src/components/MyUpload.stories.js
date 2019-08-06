@@ -5,7 +5,7 @@ import { text, boolean, number } from '@storybook/addon-knobs';
 import MyUpload from './MyUpload';
 
 
-storiesOf('MyUpload', module).add('default view', () => {
+storiesOf('components/MyUpload', module).add('default view', () => {
 
   const props = {
     'cancelButton-children': text('cancelButton', 'Close'),
