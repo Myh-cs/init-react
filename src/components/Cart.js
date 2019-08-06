@@ -5,7 +5,7 @@ import './test.less';
 import './test.scss';
 
 
-const Cart  = ({ products, total, onCheckoutClicked }) => {
+const Cart = ({ products, total, onCheckoutClicked }) => {
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
     products.map(product =>
@@ -17,8 +17,8 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
       />
     )
   ) : (
-    <em>Please add some products to cart.</em>
-  )
+      <em>Please add some products to cart.</em>
+    )
 
   return (
     <div className='test testscss'>
@@ -34,9 +34,22 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
 }
 
 Cart.propTypes = {
+  /**
+   * 产品列表
+   */
   products: PropTypes.array,
+  /**
+   * 合计
+   */
   total: PropTypes.string,
-  onCheckoutClicked: PropTypes.func
+  /**
+   * checkout回调
+   */
+  onCheckoutClicked: PropTypes.func.isRequired
+}
+Cart.defaultProps = {
+  total: '0',
+  products: []
 }
 
 export default Cart

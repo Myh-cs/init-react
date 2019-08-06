@@ -1,3 +1,4 @@
+const { loadAll } = require('../src/stories/index.js');
 import { configure, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
@@ -55,15 +56,7 @@ function importAll(context) {
 
 
 function loadStories() {
-  let req;
-  req = require.context('../src/components', true, /\.stories\.js$/);
-  importAll(req);
-  req = require.context('../src/pages', true, /\.stories\.js$/);
-  importAll(req);
-  req = require.context('../src/stories', true, /\.stories\.js$/);
-  importAll(req);
-  require('../src/stories/index.js');
-
+  loadAll()
 }
 
 configure(loadStories, module);

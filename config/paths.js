@@ -81,8 +81,7 @@ module.exports = {
   proxySetup: resolveApp('src/setupProxy.js'),
   appNodeModules: resolveApp('node_modules'),
   publicUrl: getPublicUrl(resolveApp('package.json')),
-  servedPath: getServedPath(resolveApp('package.json')),
-  appDirectory: appDirectory
+  servedPath: getServedPath(resolveApp('package.json'))
 };
 
 
