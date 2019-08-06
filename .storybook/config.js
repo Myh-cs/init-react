@@ -9,5 +9,4 @@ addDecorator(withInfo);
 function loadStories() {
   loadAll()
 }
-
 configure(loadStories, module);
