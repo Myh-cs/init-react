@@ -1,14 +1,31 @@
 import React from 'react'
-import plupload from 'plupload';
+import FineUploaderTraditional from 'fine-uploader-wrappers';
+import Gallery from 'react-fine-uploader'
+import 'react-fine-uploader/gallery/gallery.css'
+
+const uploader = new FineUploaderTraditional({
+  options: {
+    chunking: {
+      enabled: true
+    },
+    deleteFile: {
+      enabled: true,
+      endpoint: '/uploads'
+    },
+    request: {
+      endpoint: '/uploads'
+    },
+    retry: {
+      enableAuto: true
+    }
+  }
+})
 
 export default class MyUpload extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.uploader = new plupload.Uploader({})
-    console.log(this.uploader)
-  }
+
   render() {
-    console.log(this)
-    return (<div><button>test</button></div>)
+    return (
+      <Gallery uploader={uploader} {...this.props} />
+    )
   }
 }
