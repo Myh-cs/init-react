@@ -4,6 +4,8 @@ import Product from './Product'
 import './test.less';
 import './test.scss';
 
+import Style from './Cart.module.scss'
+import StyleLess from './Cart.module.less'
 
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const hasProducts = products.length > 0
@@ -21,9 +23,9 @@ const Cart = ({ products, total, onCheckoutClicked }) => {
     )
 
   return (
-    <div className='test testscss'>
-      <h3>Your Cart</h3>
-      <div>{nodes}</div>
+    <div className={Style.red}>
+      <h3 className='test testscss'>Your Cart</h3>
+      <div className={StyleLess.blue}>{nodes}</div>
       <p>Total: &#36;{total}</p>
       <button onClick={onCheckoutClicked}
         disabled={hasProducts ? '' : 'disabled'}>

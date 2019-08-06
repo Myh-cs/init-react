@@ -5,13 +5,34 @@ module.exports = function ({ config }) {
     enforce: 'pre',
   });
   config.module.rules.push({
-    test: /\.scss$/,
-    loaders: ["style-loader", "css-loader", "sass-loader"],
+    test: /\.less$/,
+    loaders: [
+      "style-loader",
+      {
+        loader: require.resolve('css-loader'),
+        options: {
+          importLoaders: 1,
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]',
+        },
+      },
+      "less-loader"
+    ],
   });
   config.module.rules.push({
-    test: /\.less$/,
-    loaders: ["style-loader", "css-loader", "less-loader"],
+    test: /\.scss$/,
+    loaders: [
+      require.resolve('style-loader'),
+      {
+        loader: require.resolve('css-loader'),
+        options: {
+          importLoaders: 1,
+          modules: true,
+          localIdentName: '[name]__[local]___[hash:base64:5]',
+        },
+      },
+      require.resolve('sass-loader')
+    ],
   });
-
   return config;
 };

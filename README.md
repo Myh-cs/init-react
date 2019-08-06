@@ -21,6 +21,31 @@ react 项目初始化架构，在redux官方购物车demo上修改而来。纯�
 ### 新增 布局组件结合router 、请求 全局处理、错误全局处理、webpack @到src的映射
 jsconfig.json 文件夹是用来 方便vscode在使用‘@’映射到‘src’是保持ctrl加点击转跳和自动补全用的。
 
+### 文件上传类库选择
+
+name |	start |	weekly |	downloads |	version |	license |	last publish |	commits |	releases |	contributors |	Issue close/totals
+-|-|-|-|-|-|-|-|-|-|-
+fine-uploader |	8028 |	18k |	5.16.2 |	MIT |	1 year |	3645 |	111 |	97	93%
+resumablejs |	3923 |	7k |	1.1.0 |	MIT |	2 | years |	497 |	4 |	90 |	70%
+webuploader |	6912 |	0.1k |	0.1.8 |	BSD |	3 years |	2269 |	6 |	29 |	20%
+
+数据来源  Github  Npm
+
+结合官网信息，及开发者反馈：
+
+Webuploader 是比较老的兼容性较高的上传插件，但在与react等新的前端框架和开发模式上结合来讲不是首选。
+Fine-uploader 与 Resumablejs 是较新的与react等新的前端框架和开发模式结合度较高的插件。 特别是Fine-uploader 有官网推荐的react组件实现。
+
+参考 github 与npm数据 推荐使用 Fine-uploader
+
+参考链接：
+
+Fine-uploader： https://fineuploader.com
+
+Resumablejs：http://www.resumablejs.com
+
+Webuploader：http://fex.baidu.com/webuploader/
+
 
 --- 
 ## 技术选型 状态管理选型
