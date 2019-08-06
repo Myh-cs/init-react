@@ -11,7 +11,7 @@ const products = [
   }
 ]
 
-const total = 12;
+const total = "12";
 
 storiesOf('components', module).add('card', () => (
   <div >
