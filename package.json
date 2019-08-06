@@ -10,8 +10,7 @@
     "@storybook/react": "^5.1.10",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
-    "harmon": "^1.4.3",
-    "storybook-addon-react-docgen": "^1.2.2"
+    "harmon": "^1.4.3"
   },
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -49,6 +48,7 @@
     "jest-resolve": "24.7.1",
     "jest-watch-typeahead": "0.3.0",
     "mini-css-extract-plugin": "0.5.0",
+    "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "pnp-webpack-plugin": "1.2.1",
     "postcss-flexbugs-fixes": "4.1.0",
