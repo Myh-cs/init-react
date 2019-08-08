@@ -2,12 +2,13 @@
  * Mocking client-server processing
  */
 import _products from './products.json'
-import axios from './request'
+import Request from './request'
 
 const TIMEOUT = 100
 
 const gethi = () => {
-  return axios.get('api/hi')
+  Request.post('/posthi', {r:3});
+  return Request.get('/hi', { ID: 12345})
 }
 
 export default {
