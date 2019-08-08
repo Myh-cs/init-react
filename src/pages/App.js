@@ -7,10 +7,11 @@ import CartContainer from './CartContainer'
 import { changeLang, sendSocket } from '../redux/actions';
 
 
-const App = ({ message, changeLang, sendSocket, intl: { formatMessage } }) => (
+const App = ({ message, events, changeLang, sendSocket, intl: { formatMessage } }) => (
   <div>
     <input type="button" value='Say Hello to Websocket' onClick={() => sendSocket('Hello')} disabled={message}/>
     <p>websocket返回的消息是：{message}</p>
+    <p>SSE 返回的消息是：{events.join(', ')}</p>
     <h2>Shopping Cart Example</h2>
     <hr />
     <ProductsContainer />
@@ -39,6 +40,7 @@ App.prototype={
 
 const mapStateToProps = (state) =>({
   message: state.socket.message,
+  events: state.eventsource.events
 });
 
 export default connect(mapStateToProps, { changeLang, sendSocket })(injectIntl(App));

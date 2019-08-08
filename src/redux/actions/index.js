@@ -57,3 +57,8 @@ export const sendSocket = message => dispatch => {
     payload: message
   })
 }
+
+export const connectEventsource = (url = 'http://10.205.20.170:8080/Gradle___websocket_war__exploded_/push', options = { withCredentials: true }) => ({
+  type: types.EVENTSOURCE_CONNECT,
+  payload: { url, options }
+})
