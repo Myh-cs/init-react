@@ -10,16 +10,21 @@ import FineUploaderTraditional from 'fine-uploader-wrappers'
 
 
 
-storiesOf('MyUpload', module).add('fileInput', () => {
+storiesOf('components/MyUpload', module).add('fileInput', () => {
   const uploader = new FineUploaderTraditional({
     options: {
+      chunking: {
+        enabled: true
+      },
       request: {
-        endpoint: 'my/upload/endpoint'
+        // endpoint: 'http://10.205.20.23:8081/test/uploads'
+        endpoint: '/upload/useFileUtilsCopyInputStreamToFile2'
       }
     }
   })
+  console.log(uploader);
   return (
-    <FileInput multiple accept='image/*' uploader={uploader}>
+    <FileInput multiple webkitdirectory="true" uploader={uploader}>
       <span className="icon test ion-upload">Choose Files</span>
     </FileInput>
   )
