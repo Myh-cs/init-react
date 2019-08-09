@@ -110,7 +110,7 @@ checkBrowsers(paths.appPath, isInteractive)
         return console.log(err);
       }
       if (isInteractive) {
-        // clearConsole();
+        clearConsole();
       }
 
       // We used to support resolving modules according to `NODE_PATH`.

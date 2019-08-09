@@ -3,13 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node scripts/start.js && eslint src --ext .js,.jsx",
+    "start": "eslint src --ext .js,.jsx && node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=node",
     "storybook": "start-storybook",
     "lint": "eslint src --ext .js,.jsx",
-    "fix": "eslint --fix src --ext .js,.jsx",
-    "precommit": "npm run lint"
+    "fix": "eslint --fix src --ext .js,.jsx"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.1.10",
