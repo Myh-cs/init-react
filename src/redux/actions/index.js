@@ -44,7 +44,7 @@ export const checkout = products => (dispatch, getState) => {
 
 
 // test
-export const gethi = () => (dispatch) => shop.gethi().then((res) => console.log('hhhhhhhhh',res))
+export const gethi = () => () => shop.gethi().then((res) => console.log('hhhhhhhhh',res))
 
 export const connectSocket = (url = 'ws://10.205.20.170:8080/Gradle___websocket_war__exploded_/marco') => ({
   type: types.WEBSOCKET_CONNECT,

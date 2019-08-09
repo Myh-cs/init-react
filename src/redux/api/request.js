@@ -10,7 +10,7 @@ const instance = axios.create({
 instance.interceptors.request.use(function (config) {
   // Do something before request is sent
   if (config.method === 'post' && !config.data){
-    console.warn('请求参数不可为空');
+    console.warn('请求参数不可为空')
   }
   return config;
 }, function (error) {
@@ -101,7 +101,7 @@ export default class Request {
     return new Promise((resolve, reject) => {
       instance.all(arr)
       .then(response => {
-        resolve(resolve)
+        resolve(response)
       })
       .catch(error => {
         reject(error);
