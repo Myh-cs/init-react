@@ -1,4 +1,6 @@
 import axios from 'axios';
+import api from './api.js';
+
 // import ErrorMap from '@/utils' // 全局错误处理的code 码与提示信息的映射。
 
 //You can create a custom instance of axios.
@@ -40,9 +42,9 @@ instance.interceptors.response.use(function (response) {
 // const myInterceptor = axios.interceptors.request.use(function () {/*...*/});
 // axios.interceptors.request.eject(myInterceptor);
 
-
-
+export const API = api;
 export default class Request {
+  static API = api;
   /**
   * 封裝axios.get請求
   * @param {String} url [請求url地址]
@@ -53,21 +55,15 @@ export default class Request {
       const options = {
         method: 'get',
         params: params,
-        headers: { 'Conent-Type': 'application/x-www-form-urlencoded' },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         url,
       };
       instance(options)
       .then(response => {
-        if (response.data.code === 0) {
-          resolve(response);
-        } else {
-          console.error('9999999',response)
-          reject(response);
-        }
+        resolve(response);
       })
       .catch(e => {
         reject(e);
-        console.error('11119999999',e)
       })
     })
   }
@@ -81,7 +77,7 @@ export default class Request {
       const options = {
         method: 'post',
         data: params,
-        headers: { 'Conent-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         url,
       };
       instance(options)

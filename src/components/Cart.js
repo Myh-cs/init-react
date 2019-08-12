@@ -6,7 +6,7 @@ import './test.scss';
 
 import Style from './Cart.module.scss'
 import StyleLess from './Cart.module.less'
-
+const hhhh = "hhhhh";
 const Cart = ({ products, total, onCheckoutClicked }) => {
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (

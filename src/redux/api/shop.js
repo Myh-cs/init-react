@@ -2,12 +2,12 @@
  * Mocking client-server processing
  */
 import _products from './products.json'
-import Request from './request'
+import Request, { API } from '../../services/request'
 
 const TIMEOUT = 100
 
 const gethi = () => {
-  Request.post('/posthi', {r:3});
+  Request.post( API.POSTHI, {r:3});
   return Request.get('/hi', { ID: 12345})
 }
 
