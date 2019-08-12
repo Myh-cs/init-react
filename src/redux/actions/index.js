@@ -46,14 +46,21 @@ export const checkout = products => (dispatch, getState) => {
 // test
 export const gethi = () => () => shop.gethi().then((res) => console.log('hhhhhhhhh',res))
 
-export const connectSocket = (url = 'ws://10.205.20.170:8080/Gradle___websocket_war__exploded_/marco') => ({
-  type: types.WEBSOCKET_CONNECT,
+// url = 'http://10.205.20.170:8080/Gradle___IM_war__exploded_/push', options = { withCredentials: true }
+export const connectServer = (url = 'ws://10.205.20.170:8080/Gradle___IM_war__exploded_/marco') => ({
+  type: types.IM_CONNECT,
   payload: { url }
 })
 
-export const sendSocket = message => dispatch => {
+export const sendServer = message => dispatch => {
   dispatch({
-    type: types.WEBSOCKET_SEND,
+    type: types.IM_SEND,
     payload: message
+  })
+}
+
+export const closeServer = () => dispatch => {
+  dispatch({
+    type: types.IM_DISCONNECT
   })
 }
