@@ -19,7 +19,7 @@ const App = Loadable({
 
 const AppWarp = props => <App {...props} />
 
-function RouteConfig(params) {
+function RouteConfig() {
   return (
     <Router>
       <Switch>

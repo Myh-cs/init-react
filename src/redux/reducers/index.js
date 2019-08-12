@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux'
 import cart, * as fromCart from './cart'
-import socket from './websocket';
+import instantmessage from './instantmessage';
 import products, * as fromProducts from './products'
 import root from './root';
 
 
 export default combineReducers({
-  socket,
+  instantmessage,
   cart,
   products,
   root

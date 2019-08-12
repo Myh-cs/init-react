@@ -44,7 +44,6 @@ const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
-
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
 module.exports = function (webpackEnv) {
@@ -309,9 +308,10 @@ module.exports = function (webpackEnv) {
           use: [
             {
               options: {
+                emitWarning: true,
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
-                eslintPath: require.resolve('eslint'),
-
+                eslintPath: require.resolve('eslint')
+                
               },
               loader: require.resolve('eslint-loader'),
             },

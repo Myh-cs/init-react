@@ -6,11 +6,11 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import Locale from '@/locale';
 import reducer from './redux/reducers'
-import { getAllProducts, connectSocket } from './redux/actions'
+import { getAllProducts, connectServer } from './redux/actions'
 import RouteConfig from './router'
-import websocket from './middleware/websocket'
+import instantmessage from './middleware/instantmessage'
 
-const middleware = [thunk, websocket];
+const middleware = [thunk, instantmessage];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
@@ -22,7 +22,7 @@ const store = createStore(
 )
 
 store.dispatch(getAllProducts())
-store.dispatch(connectSocket())
+store.dispatch(connectServer())
 
 render(
   <Provider store={store}>

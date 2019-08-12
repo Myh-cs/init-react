@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductsContainer from './ProductsContainer'
 import CartContainer from './CartContainer'
-import { changeLang, sendSocket } from '../redux/actions';
+import { changeLang, sendServer } from '../redux/actions';
 
 
-const App = ({ message, changeLang, sendSocket, intl: { formatMessage } }) => (
+const App = ({ message, changeLang, sendServer, intl: { formatMessage } }) => (
   <div>
-    <input type="button" value='Say Hello to Websocket' onClick={() => sendSocket('Hello')} disabled={message}/>
+    <input type="button" value='Say Hello to Websocket' onClick={() => sendServer('Hello')} disabled={message}/>
     <p>websocket返回的消息是：{message}</p>
     <h2>Shopping Cart Example</h2>
     <hr />
@@ -34,11 +34,11 @@ const App = ({ message, changeLang, sendSocket, intl: { formatMessage } }) => (
 App.prototype={
   intl:intlShape.isRequired,
   changeLang:PropTypes.func.isRequired,
-  sendSocket: PropTypes.func.isRequired
+  sendServer: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) =>({
-  message: state.socket.message,
+  message: state.instantmessage.message
 });
 
-export default connect(mapStateToProps, { changeLang, sendSocket })(injectIntl(App));
+export default connect(mapStateToProps, { changeLang, sendServer })(injectIntl(App));
