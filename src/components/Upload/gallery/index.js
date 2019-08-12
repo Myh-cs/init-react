@@ -71,7 +71,15 @@ class Gallery extends Component {
       }
     }
   }
+  pauseAll = () => {
+    var files = this.props.uploader.methods.getUploads({ status: this.props.uploader.qq.status.PAUSED })
+    var file1 = this.props.uploader.methods.getUploads({ id: this.state.visibleFiles[0].id })
+    debugger
+    files.forEach((file => this.props.uploader.methods.pauseUpload(file.id)))
+  }
+  restartAll = () => {
 
+  }
   componentDidMount() {
     this.props.uploader.on('statusChange', this._onStatusChange)
   }
@@ -98,109 +106,112 @@ class Gallery extends Component {
     const pauseResumeButtonProps = chunkingEnabled && getComponentProps('pauseResumeButton', this.props)
 
     return (
-      <MaybeDropzone content={this.props.children}
-        hasVisibleFiles={this.state.visibleFiles.length > 0}
-        uploader={uploader}
-        {...dropzoneProps}
-      >
-        {
-          !fileInputProps.disabled &&
-          <FileInputComponent uploader={uploader} {...fileInputProps} />
-        }
-        <ProgressBar className='react-fine-uploader-gallery-total-progress-bar'
+      <>
+        <button onClick={this.pauseAll}>pauseAll</button>
+        <MaybeDropzone content={this.props.children}
+          hasVisibleFiles={this.state.visibleFiles.length > 0}
           uploader={uploader}
-          {...progressBarProps}
-        />
-        <TransitionGroup
-          component="ul"
-          className='react-fine-uploader-gallery-files'
-          enter={!this.props.animationsDisabled}
-          exit={!this.props.animationsDisabled}
+          {...dropzoneProps}
         >
           {
-            this.state.visibleFiles.map(({ id, status, fromServer }) => (
-              <CSSTransition
-                key={id}
-                classNames="react-fine-uploader-gallery-files"
-                timeout={{ enter: 500, exit: 300 }}
-              >
-                <li key={id}
-                  className='react-fine-uploader-gallery-file'
-                >
-                  <ProgressBar className='react-fine-uploader-gallery-progress-bar'
-                    id={id}
-                    uploader={uploader}
-                    {...progressBarProps}
-                  />
-                  <Thumbnail className='react-fine-uploader-gallery-thumbnail'
-                    id={id}
-                    fromServer={fromServer}
-                    uploader={uploader}
-                    {...thumbnailProps}
-                  />
-                  {
-                    status === 'upload successful' &&
-                    <span>
-                      <UploadSuccessIcon className='react-fine-uploader-gallery-upload-success-icon' />
-                      <div className='react-fine-uploader-gallery-thumbnail-icon-backdrop' />
-                    </span>
-                  }
-                  {
-                    status === 'upload failed' &&
-                    <span>
-                      <UploadFailedIcon className='react-fine-uploader-gallery-upload-failed-icon' />
-                      <div className='react-fine-uploader-gallery-thumbnail-icon-backdrop' />
-                    </span>
-                  }
-                  <div className='react-fine-uploader-gallery-file-footer'>
-                    <Filename className='react-fine-uploader-gallery-filename'
-                      id={id}
-                      uploader={uploader}
-                      {...filenameProps}
-                    />
-                    <Status className='react-fine-uploader-gallery-status'
-                      id={id}
-                      uploader={uploader}
-                      {...statusProps}
-                    />
-                    <Filesize className='react-fine-uploader-gallery-filesize'
-                      id={id}
-                      uploader={uploader}
-                      {...filesizeProps}
-                    />
-                  </div>
-                  <CancelButton className='react-fine-uploader-gallery-cancel-button'
-                    id={id}
-                    uploader={uploader}
-                    {...cancelButtonProps}
-                  />
-                  <RetryButton className='react-fine-uploader-gallery-retry-button'
-                    id={id}
-                    uploader={uploader}
-                    {...retryButtonProps}
-                  />
-                  {
-                    deleteEnabled &&
-                    <DeleteButton className='react-fine-uploader-gallery-delete-button'
-                      id={id}
-                      uploader={uploader}
-                      {...deleteButtonProps}
-                    />
-                  }
-                  {
-                    chunkingEnabled &&
-                    <PauseResumeButton className='react-fine-uploader-gallery-pause-resume-button'
-                      id={id}
-                      uploader={uploader}
-                      {...pauseResumeButtonProps}
-                    />
-                  }
-                </li>
-              </CSSTransition>
-            ))
+            !fileInputProps.disabled &&
+            <FileInputComponent uploader={uploader} {...fileInputProps} />
           }
-        </TransitionGroup>
-      </MaybeDropzone>
+          <ProgressBar className='react-fine-uploader-gallery-total-progress-bar'
+            uploader={uploader}
+            {...progressBarProps}
+          />
+          <TransitionGroup
+            component="ul"
+            className='react-fine-uploader-gallery-files'
+            enter={!this.props.animationsDisabled}
+            exit={!this.props.animationsDisabled}
+          >
+            {
+              this.state.visibleFiles.map(({ id, status, fromServer }) => (
+                <CSSTransition
+                  key={id}
+                  classNames="react-fine-uploader-gallery-files"
+                  timeout={{ enter: 500, exit: 300 }}
+                >
+                  <li key={id}
+                    className='react-fine-uploader-gallery-file'
+                  >
+                    <ProgressBar className='react-fine-uploader-gallery-progress-bar'
+                      id={id}
+                      uploader={uploader}
+                      {...progressBarProps}
+                    />
+                    <Thumbnail className='react-fine-uploader-gallery-thumbnail'
+                      id={id}
+                      fromServer={fromServer}
+                      uploader={uploader}
+                      {...thumbnailProps}
+                    />
+                    {
+                      status === 'upload successful' &&
+                      <span>
+                        <UploadSuccessIcon className='react-fine-uploader-gallery-upload-success-icon' />
+                        <div className='react-fine-uploader-gallery-thumbnail-icon-backdrop' />
+                      </span>
+                    }
+                    {
+                      status === 'upload failed' &&
+                      <span>
+                        <UploadFailedIcon className='react-fine-uploader-gallery-upload-failed-icon' />
+                        <div className='react-fine-uploader-gallery-thumbnail-icon-backdrop' />
+                      </span>
+                    }
+                    <div className='react-fine-uploader-gallery-file-footer'>
+                      <Filename className='react-fine-uploader-gallery-filename'
+                        id={id}
+                        uploader={uploader}
+                        {...filenameProps}
+                      />
+                      <Status className='react-fine-uploader-gallery-status'
+                        id={id}
+                        uploader={uploader}
+                        {...statusProps}
+                      />
+                      <Filesize className='react-fine-uploader-gallery-filesize'
+                        id={id}
+                        uploader={uploader}
+                        {...filesizeProps}
+                      />
+                    </div>
+                    <CancelButton className='react-fine-uploader-gallery-cancel-button'
+                      id={id}
+                      uploader={uploader}
+                      {...cancelButtonProps}
+                    />
+                    <RetryButton className='react-fine-uploader-gallery-retry-button'
+                      id={id}
+                      uploader={uploader}
+                      {...retryButtonProps}
+                    />
+                    {
+                      deleteEnabled &&
+                      <DeleteButton className='react-fine-uploader-gallery-delete-button'
+                        id={id}
+                        uploader={uploader}
+                        {...deleteButtonProps}
+                      />
+                    }
+                    {
+                      chunkingEnabled &&
+                      <PauseResumeButton className='react-fine-uploader-gallery-pause-resume-button'
+                        id={id}
+                        uploader={uploader}
+                        {...pauseResumeButtonProps}
+                      />
+                    }
+                  </li>
+                </CSSTransition>
+              ))
+            }
+          </TransitionGroup>
+        </MaybeDropzone>
+      </>
     )
   }
 
