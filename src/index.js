@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import Locale from '@/locale';
-import reducer from './redux/reducers'
+import reducer from './module/reducers'
 import RouteConfig from './router'
 // import instantmessage from './middleware/instantmessage'
 

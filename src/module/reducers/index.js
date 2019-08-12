@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from '@/module'
 import instantmessage from './instantmessage';
 import root from './root';
 
