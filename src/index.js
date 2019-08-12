@@ -7,9 +7,10 @@ import thunk from 'redux-thunk'
 import Locale from '@/locale';
 import reducer from './redux/reducers'
 import RouteConfig from './router'
-import instantmessage from './middleware/instantmessage'
+// import instantmessage from './middleware/instantmessage'
 
-const middleware = [thunk, instantmessage];
+const middleware = [thunk];
+// const middleware = [thunk, instantmessage];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
