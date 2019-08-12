@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import FileInput from 'react-fine-uploader/file-input'
 import 'react-fine-uploader/gallery/gallery.css'
-import './test.less'
 
 import FineUploaderTraditional from 'fine-uploader-wrappers'
 

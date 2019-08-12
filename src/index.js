@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import Locale from '@/locale';
 import reducer from './redux/reducers'
-import { getAllProducts, connectServer } from './redux/actions'
+import { connectServer } from './redux/actions'
 import RouteConfig from './router'
 import instantmessage from './middleware/instantmessage'
 
@@ -21,7 +21,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(...middleware)),// chrom调试redux插件要用到
 )
 
-store.dispatch(getAllProducts())
 store.dispatch(connectServer())
 
 render(
