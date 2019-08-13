@@ -7,10 +7,9 @@ import thunk from 'redux-thunk'
 import Locale from '@/locale';
 import reducer from './module/reducers'
 import RouteConfig from './router'
-// import instantmessage from './middleware/instantmessage'
+import websocket from './module/middleware/websocket'
 
-const middleware = [thunk];
-// const middleware = [thunk, instantmessage];
+const middleware = [thunk, websocket];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
