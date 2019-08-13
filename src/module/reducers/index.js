@@ -1,10 +1,11 @@
-import { combineReducers } from '@/module'
-import instantmessage from './instantmessage';
-import root from './root';
+import { combineReducers } from 'redux'
 
-
-export default combineReducers({
-  instantmessage,
-  root
-})
-
+const loadAll = () => {
+  const context = require.context('@/', true, /\.reducer.js$/)
+  let result = {};
+  context.keys().forEach(key => {
+    result[context(key).default.name] = context(key).default;
+  });
+  return result
+}
+export default combineReducers(loadAll());

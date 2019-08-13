@@ -28,8 +28,8 @@ const chooseLocale = (val) => {
 }
 
 const mapStateToProps = (state) => ({
-  locale: state.root.language,
-  localeMessage: chooseLocale(state.root.language)
+  locale: state.locale.language,
+  localeMessage: chooseLocale(state.locale.language)
 });
 
 export default connect(mapStateToProps)(Locale);

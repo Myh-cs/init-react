@@ -1,4 +1,4 @@
-import instantmessage from './instantmessage';
+import instantmessage from './instantmessage.reducer';
 
 describe('instantmessage', () => {
   const initialState = {
