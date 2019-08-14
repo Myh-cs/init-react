@@ -2,11 +2,8 @@ import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl';
 import { connect } from 'react-redux';
 
-
 const App = () => (
   <div>
-    
-
     
     <FormattedMessage id="hello" tagName="h2" />
     <FormattedMessage id='hello'>

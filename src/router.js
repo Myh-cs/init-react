@@ -17,6 +17,11 @@ const App = Loadable({
   loading: Loading,
 });
 
+const Todo = Loadable({
+  loader: () => import('./pages/Todo'),
+  loading: Loading,
+});
+
 const AppWarp = props => <App {...props} />
 
 function RouteConfig() {
@@ -25,6 +30,7 @@ function RouteConfig() {
       <Switch>
         <Route path="/" exact component={withAuthority(LoadableComponent)} />
         <Route path="/login" component={Login} />
+        <Route path="/todo" component={withAuthority(Todo)} />
         <Route path="/app" render={withAuthority(AppWarp)} />
         <Route path="/layout">
           <BaseLayout>
