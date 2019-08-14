@@ -12,7 +12,7 @@ export default function eventsource(state = initialState, action = {}){
       }
     case IM_OPEN:
       return state;
-    case IM_ERROR:
+    case IM_ERROR: //TODO: reconnection
       return state;
     default:
       return state;
