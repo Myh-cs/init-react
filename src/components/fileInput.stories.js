@@ -33,19 +33,13 @@ class SimpleUpload extends React.PureComponent {
   }
   componentDidMount() {
     this.uploader.on('statusChange', this.onStatusChange)
-    this.uploader.on('onProgress', this.onProgressChange)
   }
   componentWillUnmount() {
     this.uploader.off('statusChange', this.onStatusChange)
-    this.uploader.off('onProgress', this.onProgressChange)
 
   }
   onFileChange = (event) => {
     this.uploader.methods.addFiles(event.target)
-  }
-  onProgressChange = (id, name, uploadedBytes, totalBytes) => {
-    console.log(`id:${id},name:${name},upload:${uploadedBytes},total:${totalBytes}`);
-    this.setState({ progress: (uploadedBytes * 100) / totalBytes });
   }
   onStatusChange = (id, oldStatus, status) => {
     console.log(id, oldStatus, status);
@@ -61,42 +55,100 @@ class SimpleUpload extends React.PureComponent {
     this.uploader.methods.continueUpload(id);
   }
   cancelByid = (id) => {
-    this.setState({ visibleFiles: [], progress: 0 });
-    console.log(Object.keys(this.fileInput.current))
-    this.setState({ inputkey: `${id}${new Date().getTime()}` })
+    // this.setState({ visibleFiles: [], progress: 0 });
+    // console.log(Object.keys(this.fileInput.current))
+    // this.setState({ inputkey: `${id}${new Date().getTime()}` })
     this.uploader.methods.cancel(id);
   }
-  pauseButtonRender = (id) => {
-    if (this.state.visibleFiles.length) {
-      if (this.state.visibleFiles[0].status === this.statusEnum.PAUSED) {
-        return <button onClick={() => this.continueById(id)}>继续</button>
-      } else {
-        return <button onClick={() => this.pauseById(id)}>暂停</button>
+  findFileIndexById = (id) => {
+    const { visibleFiles } = this.state;
+    for (let index = 0; index < visibleFiles.length; index++) {
+      const element = visibleFiles[index];
+      if (element.id === id) {
+        return index;
       }
     }
+    return -1
   }
-  cancelButtonRender = (id) => {
-    if (this.state.visibleFiles.length) {
-      return <button onClick={() => this.cancelByid(id)}>取消</button>
-    }
-  }
-
   render() {
-    const id = this.state.visibleFiles.length ? this.state.visibleFiles[0].id : null;
+    const { visibleFiles } = this.state;
     return (
       <>
-        <input key={this.state.inputkey} style={{ visibility: 'hidden', height: 0, width: 0 }} type="file" ref={this.fileInput} onChange={this.onFileChange} />
+        <input key={this.state.inputkey} multiple style={{ visibility: 'hidden', height: 0, width: 0 }} type="file" ref={this.fileInput} onChange={this.onFileChange} />
+        {visibleFiles.map(file => {
+          const renderProgress = ({ id, status, name }) => {
+            if (status === this.statusEnum.UPLOADING || status === this.statusEnum.UPLOAD_FINALIZING) {
+              return <span>文件：{name} 正在上传：<UploadProgress id={id} uploader={this.uploader} /></span>
+            }
+          }
+          return (
+            <div>
+              {renderProgress(file)}
+              {file.status === this.statusEnum.PAUSED ?
+                <button onClick={() => this.continueById(file.id)}>继续</button>
+                :
+                <button onClick={() => this.pauseById(file.id)}>暂停</button>
+              }
+              <button onClick={() => this.cancelByid(file.id)}>取消</button>
+
+            </div>
+          )
+        })}
         <button onClick={() => { this.fileInput.current.click() }}>上传文件</button>
-        <div>
-          {this.state.progress > 0 && `文件名:${this.state.visibleFiles[0].name}, 已经上传${this.state.progress.toFixed(2)}% `}
-          {this.pauseButtonRender(id)}
-          {this.cancelButtonRender(id)}
-        </div>
+
       </>
     )
   }
 }
 
+class UploadProgress extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      percent: 0
+    }
+  }
+  defaultProps = {
+    total: false,
+    uploader: null,
+    id: ''
+  }
+  componentDidMount() {
+    if (this.props.uploader) {
+      if (this.props.total) {
+        this.props.uploader.on('onTotalProgress', this.onTotalProgressChange);
+      } else {
+        this.props.uploader.on('onProgress', this.onProgressChange);
+      }
+    }
+  }
+  componentWillUnmount() {
+    if (this.props.uploader) {
+      if (this.props.total) {
+        this.props.uploader.off('onTotalProgress', this.onTotalProgressChange);
+      } else {
+        this.props.uploader.off('onProgress', this.onProgressChange);
+      }
+    }
+  }
+  onProgressChange = (id, name, uploadedBytes, totalBytes) => {
+    if (id === this.props.id) {
+      this.setState({ percent: (uploadedBytes * 100 / totalBytes).toFixed(2) })
+    }
+  }
+  onTotalProgressChange = (totalUploadedBytes, totalBytes) => {
+    this.setState({ percent: (totalUploadedBytes * 100 / totalBytes).toFixed(2) });
+  }
+
+  render() {
+    return (
+      <span>
+        {this.state.percent}%
+      </span>
+    );
+
+  }
+}
 
 
 storiesOf('components/SimpleUpload', module).add('SimpleUpload', () => {
