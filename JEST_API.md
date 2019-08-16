@@ -1,3 +1,4 @@
+# jest
 ## 常用列表
 
 - expect.assertions(number)  验证在测试期间调用了一定数量的断言
@@ -20,3 +21,10 @@
 - .toBeGreaterThanOrEqual(number) 检查值 大于等于 number
 - .toBeLessThan(number) 检查值 小于 number
 - .toBeLessThanOrEqual(number) 检查值 小于等于 number
+
+# enzyme > Shallow
+## 常用列表
+
+- .debug() 将Shallow的快照节点打印为字符串,例如: `shallow((<Todo/>)).debug()`
+- .find(selector) 查找节点`expect(wrapper.find('.foo')).to.have.lengthOf(1);`
+

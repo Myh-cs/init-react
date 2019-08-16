@@ -1,12 +1,13 @@
 import React from 'react'
-// import Footer from './Footer'
 import AddTodo from './containers/addTodo'
-import VisibleTodoList from './containers/visibleTodoList'
+import TodoList from './containers/todoList'
+import Footer from './containers/footer'
 import './index.css'
 const ToDoMVC = () => (
     <div className="todoapp">
         <AddTodo />
-        <VisibleTodoList />
+        <TodoList />
+        <Footer />
     </div>
 )
 

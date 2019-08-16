@@ -1,11 +1,11 @@
 import React from 'react';
 
-export function AddTodo({ onSubmit }){
+export default function({ handleAddTodo }){
     let input;
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!input.value.trim()) { return; }
-        onSubmit(input.value);
+        handleAddTodo(input.value);
         input.value = '';
     }
     return (

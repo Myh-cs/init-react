@@ -1,8 +1,4 @@
-import { AddTodo } from '../components/addTodo.jsx';
+import AddTodo from '../components/addTodo.jsx';
 import { connect } from 'react-redux';
-import { addTodo } from '../store/todo.reducer.js';
-
-const mapDispatchToProps = dispatch => ({
-    onSubmit: () => dispatch(addTodo)
-})
-export default connect(state => state, mapDispatchToProps)(AddTodo)
+import { handleAddTodo } from '../store/todo.action.js';
+export default connect(state => state.todo, { handleAddTodo })(AddTodo)
