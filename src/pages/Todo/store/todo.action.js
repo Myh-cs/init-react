@@ -28,7 +28,6 @@ export const handleEdit = id => (dispatch) => {
 }
 
 export const setVisibilityFilter = filter => (dispatch) => {
-    console.log('==', filter)
     dispatch({
         type: 'SET_VISIBILITY_FILTER',
         filter: filter

@@ -48,11 +48,11 @@ describe('<TodoList/>', () => {
             completed: true,
             editing: true,
         }
-        expect(sectodo.props()).toMatchObject(secprops);
-        sectodo.props().onToggle();
-        expect(props.onToggle.mock.calls.length).toBe(1)
+        expect(sectodo.props()).toMatchObject(secprops);  
         sectodo.props().onDestroy();
-        expect(props.onDestroy.mock.calls.length).toBe(1)
+        // expect(props.onDestroy.mock.calls.length).toBe(1)
+        // expect(props.onDestroy).toHaveBeenCalled()
+        expect(props.onDestroy).toHaveBeenCalled()
         sectodo.props().handleEdit();
         expect(props.handleEdit.mock.calls.length).toBe(1)
     });

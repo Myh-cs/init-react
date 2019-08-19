@@ -23,8 +23,51 @@
 - .toBeLessThanOrEqual(number) 检查值 小于等于 number
 
 # enzyme > Shallow
-## 常用列表
 
-- .debug() 将Shallow的快照节点打印为字符串,例如: `shallow((<Todo/>)).debug()`
-- .find(selector) 查找节点`expect(wrapper.find('.foo')).to.have.lengthOf(1);`
+### 选择器方法
 
+- .find(selector) => ShallowWrapper
+- .filter(selector) => ShallowWrapper
+- .children([selector]) => ShallowWrapper
+- .childAt(index) => ShallowWrapper
+- .at(index) => ShallowWrapper
+- get(index) => ReactElement
+    返回一个react node，要测试它，得重新渲染。
+- .first() => ShallowWrapper
+- .last() => ShallowWrapper
+
+### 懒人判断方法
+
+- .contains(nodeOrNodes) => Boolean 精确匹配
+- .containsAllMatchingElements(nodes) => Boolean 模糊匹配
+- .equals(node) => Boolean 
+- .exists([selector]) => Boolean
+- .hasClass(className) => Boolean
+- .is(selector) => Boolean
+- .some(selector) => Boolean
+- .every(selector) => Boolean
+
+### 组件方法
+- .key() => String
+- .state([key]) => Any
+- .prop(key) => Any
+- .props() => Object
+- .text() => String
+- .simulate(event[, ...args]) => Self
+- .setProps(nextProps[, callback]) => Self
+- .setState(nextState[, callback]) => Self
+- .render() => CheerioWrapper
+- .renderProp(propName)(...args) => ShallowWrapper
+
+### 复合方法
+
+- .forEach(fn) => Self
+- .map(fn) => Array<Any>
+- .reduce(fn[, initialValue]) => Any
+- .slice([begin[, end]]) => ShallowWrapper
+
+### 其他方法
+- .shallow([options]) => ShallowWrapper
+- .debug([options]) => String
+    将Shallow的快照节点打印为字符串,例如: `shallow((<Todo/>)).debug()`
+- .dive() 浅渲染当前wrapper中的一个复合子组件 

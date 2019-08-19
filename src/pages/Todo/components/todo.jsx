@@ -11,7 +11,7 @@ const Todo = ({
     handleChange,
     handleKeyDown
 }) => {
-    const liStatus = `${completed ? 'completed' : ''} ${editing ? 'editing': ''}`;
+    const liStatus = `${completed ? 'completed' : '2'} ${editing ? 'editing': '1'}`;
     return (
         <li className={liStatus}>
             <div className="view">

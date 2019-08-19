@@ -11,6 +11,15 @@ const initialState = {
     visibilityFilter: 'All'
 }
 
+export const xxxx = (list) => {return list.filter(() => {
+    // if(item.completed === filter){
+    //     return true
+    // } else {
+
+    // }
+    return true;
+})}
+
 export default function todo(state = initialState, action = {}) {
     switch (action.type){
         case actionTypes['ADD_TODO']:
@@ -65,7 +74,6 @@ export default function todo(state = initialState, action = {}) {
                 default:
                     newState =  state
             }
-            console.log(newState)
             return newState
         default:
             return state;

@@ -5,7 +5,8 @@ import {
     onDestroy,
     handleEdit
 } from '../store/todo.action.js';
-const mapStateToProps = (state) => ({ todos: state.todo.todos });
+import { xxxx } from '../store/todo.reducer.js';
+const mapStateToProps = (state) => ({ todos: xxxx(state.todo.todos, state.todo.xxx) });
 
 export default connect(mapStateToProps, {
     onToggle,

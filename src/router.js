@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Loadable from 'react-loadable';
-import BaseLayout from './Layout/BaseLayout';
+import BaseLayout from './components/BaseLayout';
 import withAuthority from './withAuthority'
 import Login from './pages/Login';
 

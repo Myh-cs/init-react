@@ -70,10 +70,12 @@ describe('<Todo/>', () => {
         it('class li should be completed', () => {
             const props = {
                 completed: true,
-                editing: false
+                editing: true
             }
             const { wrapper } = setup(props);
-            expect(wrapper.hasClass('completed')).toEqual(true)
+            expect(wrapper.hasClass('completed')).toEqual(true);
+            expect(wrapper.hasClass('editing')).toEqual(true)
+
         })
         it('class li should be editing', () => {
             const props = {

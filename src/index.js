@@ -5,9 +5,9 @@ import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import Locale from '@/locale';
-import reducer from './module/reducers'
+import reducer from './store/reducers'
 import RouteConfig from './router'
-import websocket from './module/middleware/websocket'
+import websocket from './store/middleware/websocket'
 
 const middleware = [thunk, websocket];
 if (process.env.NODE_ENV !== 'production') {
